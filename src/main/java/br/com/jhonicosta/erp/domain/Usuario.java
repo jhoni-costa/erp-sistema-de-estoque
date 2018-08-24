@@ -2,22 +2,26 @@ package br.com.jhonicosta.erp.domain;
 
 import java.io.Serializable;
 
-import br.com.jhonicosta.erp.domain.enums.TipoUsuario;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document(collection="usuario")
 public class Usuario implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	@Id
 	private String id;
 	private String nome;
 	private String email;
 	private String cpf;
-	private TipoUsuario tipo;
+//	Mudar para TipoUsuario
+	private String tipo;
 	private String senha;
 
 	public Usuario() {
 	}
 
-	public Usuario(String id, String nome, String email, String cpf, TipoUsuario tipo, String senha) {
+	public Usuario(String id, String nome, String email, String cpf, String tipo, String senha) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -59,11 +63,11 @@ public class Usuario implements Serializable {
 		this.cpf = cpf;
 	}
 
-	public TipoUsuario getTipo() {
+	public String getTipo() {
 		return tipo;
 	}
 
-	public void setTipo(TipoUsuario tipo) {
+	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
 
