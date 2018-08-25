@@ -9,7 +9,7 @@ import br.com.jhonicosta.erp.domain.Usuario;
 import br.com.jhonicosta.erp.repository.UsuarioRepository;
 
 @Service
-public class UsuarioServices {
+public class UsuarioService {
 	
 	@Autowired
 	private UsuarioRepository repository;

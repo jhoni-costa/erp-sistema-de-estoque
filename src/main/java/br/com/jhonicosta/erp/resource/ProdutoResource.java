@@ -10,22 +10,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.jhonicosta.erp.domain.Usuario;
-import br.com.jhonicosta.erp.dto.UsuarioDTO;
-import br.com.jhonicosta.erp.services.UsuarioService;
+import br.com.jhonicosta.erp.domain.Produto;
+import br.com.jhonicosta.erp.dto.ProdutoDTO;
+import br.com.jhonicosta.erp.services.ProdutoService;
 
 @RestController
-@RequestMapping(value="/usuarios")
-public class UsuarioResource {
+@RequestMapping(value="/produtos")
+public class ProdutoResource {
 
 	@Autowired
-	private UsuarioService service;
+	private ProdutoService service;
 
 	@RequestMapping(method=RequestMethod.GET)
-	public ResponseEntity<List<UsuarioDTO>> findAll(){
+	public ResponseEntity<List<ProdutoDTO>> findAll(){
 		
-		List<Usuario> list = service.findAll();
-		List<UsuarioDTO> listDto = list.stream().map(x -> new UsuarioDTO(x)).collect(Collectors.toList());
+		List<Produto> list = service.findAll();
+		List<ProdutoDTO> listDto = list.stream().map(x -> new ProdutoDTO(x)).collect(Collectors.toList());
 		return ResponseEntity.ok().body(listDto);
 	}
 }
