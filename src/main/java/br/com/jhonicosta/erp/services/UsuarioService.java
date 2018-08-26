@@ -33,4 +33,9 @@ public class UsuarioService {
 	public Usuario fromDTO(UsuarioDTO dto) {
 		return new Usuario(dto.getId(), dto.getNome(), dto.getEmail(), dto.getCpf(), dto.getTipo(), dto.getSenha());
 	}
+
+	public void delete(String id) {
+		findById(id);
+		repository.deleteById(id);
+	}
 }
